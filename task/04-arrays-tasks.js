@@ -378,7 +378,7 @@ function getFalsyValuesCount(arr) {
    let newArr = arr.filter(function(item) {
       return item === null || item === 0 || item === undefined  || item === '' ||  item === false ||  isNaN(item) && typeof(item) !== 'string'
       });
-      console.log(newArr)
+      
    if (newArr.length === 0) {
      return 0;
    }
@@ -549,7 +549,8 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-    throw new Error('Not implemented');
+   let newArr = arr.map(childrenSelector);
+   return [].concat.apply([], newArr);
 }
 
 
