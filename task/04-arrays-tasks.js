@@ -201,7 +201,9 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-   throw new Error('Not implemented');
+   return arr.map(function(d){
+      return d.join();
+  }).join('\n');
 }
 
 /**
@@ -276,7 +278,10 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-   throw new Error('Not implemented');
+   let newArr =  arr.map(function(item, i) {
+      return Array(i+1).fill(item)
+    });
+    return [].concat.apply([], newArr);
 }
 
 
@@ -388,7 +393,8 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-   throw new Error('Not implemented');
+   let itemsArr = arr.filter(items => items === item);
+   return itemsArr.length;
 }
 
 /**

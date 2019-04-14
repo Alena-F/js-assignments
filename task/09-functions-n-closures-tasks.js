@@ -26,7 +26,18 @@
  *
  */
 function getComposition(f,g) {
-    throw new Error('Not implemented');
+    let result = 0;
+
+  function fn(m) {
+   result += f(g(...arguments));
+   return fn;
+  };
+
+  fn.toString = function() {
+    return result;
+  };
+
+  return fn;
 }
 
 
